@@ -1,10 +1,15 @@
 from django.conf.urls import patterns, include, url
 from polls.api import PollResource, ChoiceResource
 from django.contrib import admin
+from tastypie.api import Api
 admin.autodiscover()
 
-poll_resource = PollResource()
-# Choice_resource = ChoiceResource()
+v1_api = Api(api_name='v1')
+v1_api.register(PollResource())
+v1_api.register(ChoiceResource())
+
+# poll_resource = PollResource()
+# # Choice_resource = ChoiceResource()
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,5 +22,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', include(admin.site.urls)),
- 	url(r'^api/', include(poll_resource.urls)),   
+ 	url(r'^api/', include(v1_api.urls)),   
 )
