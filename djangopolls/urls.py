@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
+from polls.api import PollResource, ChoiceResource
 from django.contrib import admin
 admin.autodiscover()
+
+poll_resource = PollResource()
+# Choice_resource = ChoiceResource()
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,4 +17,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', include(admin.site.urls)),
+ 	url(r'^api/', include(poll_resource.urls)),   
 )
