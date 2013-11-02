@@ -22,7 +22,10 @@ controllers.controller('VoteCtrl', ['$scope', '$http', '$routeParams', 'Polls',
 controllers.controller('PollCtrl', ['$scope', '$http', 'Polls', 'Testing',
     function ($scope, $http, Polls, Testing) {
         $scope.polls = Polls.query(); // get all
-        $scope.testData = Testing.get();
+        $scope.testData = Testing.get(function(){
+            $scope.objects = $scope.testData['objects']
+        });
+        // $scope.objects = $scope.testData['objects'][1]['id'];
         // $scope.testData = Testing.all();
         // $scope.ques = $scope.testData["question"];
     }]);

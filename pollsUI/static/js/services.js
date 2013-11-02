@@ -42,7 +42,7 @@ services.factory('Polls', ['$resource',
 
 services.factory('Testing', ['$resource', '$http',
     function ($resource, $http) {
-        return $resource('http://0.0.0.0:8001/api/v1/poll/1/?format=json',
+        return $resource('http://0.0.0.0:8001/api/v1/poll/?format=json',
             {}, {
                 all: {
                     method: 'GET',
