@@ -1,8 +1,8 @@
 from django.contrib import admin
-from polls.models import Poll, Choice
+from polls.models import Poll, Option
 
-class ChoiceInLine(admin.TabularInline):
-	model = Choice
+class OptionInLine(admin.TabularInline):
+	model = Option
 	extra = 3
 
 class PollAdmin(admin.ModelAdmin):
@@ -11,7 +11,7 @@ class PollAdmin(admin.ModelAdmin):
 		(None, {'fields': ['question']}),
 		('Date Information', {'fields': ['pub_date'], 'classes' : ['collapse']}),
 	] # groups fields into fieldsets
-	inlines = [ChoiceInLine]
+	inlines = [OptionInLine]
 	list_display = ('question', 'pub_date', 'was_published_recently')
 	list_filter = ['pub_date']
 	search_fields = ['question']
