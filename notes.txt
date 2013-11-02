@@ -1,0 +1,11 @@
+http://0.0.0.0:8001/api/v1/?format=json
+
+{"choice": {"list_endpoint": "/api/v1/choice/", "schema": "/api/v1/choice/schema/"}, "poll": {"list_endpoint": "/api/v1/poll/", "schema": "/api/v1/poll/schema/"}}
+
+http://0.0.0.0:8001/api/v1/choice/?format=json
+
+{"meta": {"limit": 20, "next": null, "offset": 0, "previous": null, "total_count": 6}, "objects": [{"choice_text": "CS 31", "id": 1, "poll": "/api/v1/poll/1/", "resource_uri": "/api/v1/choice/1/", "votes": 1}, {"choice_text": "CS 32", "id": 2, "poll": "/api/v1/poll/1/", "resource_uri": "/api/v1/choice/2/", "votes": 0}, {"choice_text": "Physics 1B", "id": 3, "poll": "/api/v1/poll/1/", "resource_uri": "/api/v1/choice/3/", "votes": 1}, {"choice_text": "Smallberg", "id": 4, "poll": "/api/v1/poll/2/", "resource_uri": "/api/v1/choice/4/", "votes": 0}, {"choice_text": "Zaidel", "id": 5, "poll": "/api/v1/poll/2/", "resource_uri": "/api/v1/choice/5/", "votes": 0}, {"choice_text": "Krasne", "id": 6, "poll": "/api/v1/poll/2/", "resource_uri": "/api/v1/choice/6/", "votes": 0}]}
+
+http://0.0.0.0:8001/api/v1/poll/?format=json
+
+{"meta": {"limit": 20, "next": null, "offset": 0, "previous": null, "total_count": 2}, "objects": [{"id": 1, "pub_date": "2013-10-30T23:33:33", "question": "What's the best class to audit at UCLA?", "resource_uri": "/api/v1/poll/1/"}, {"id": 2, "pub_date": "2013-10-30T23:34:10", "question": "Who's the best teacher at UCLA?", "resource_uri": "/api/v1/poll/2/"}]}

@@ -6,10 +6,10 @@ from tastypie import fields
 class PollResource(ModelResource):
 	class Meta:
 		queryset = Poll.objects.all()
-		authorization= Authorization()
+		authorization = Authorization()
 
 class ChoiceResource(ModelResource):
 	poll = fields.ForeignKey(PollResource, 'poll')
 	class Meta:
 		queryset = Choice.objects.all()
-		authorization= Authorization()
+		authorization = Authorization()
