@@ -19,11 +19,11 @@ controllers.controller('VoteCtrl', ['$scope', '$http', '$routeParams', 'Polls',
         };
     }]);
 
-controllers.controller('PollCtrl', ['$scope', '$http', 'Polls', 'Testing',
-    function ($scope, $http, Polls, Testing) {
-        $scope.polls = Polls.query(); // get all
-        $scope.testData = Testing.get(function(){
-            $scope.objects = $scope.testData['objects']
+controllers.controller('PollCtrl', ['$scope', '$http', 'Polls',
+    function ($scope, $http, Polls) {
+        // $scope.polls = Polls.query(); // get all
+        $scope.pollData = Polls.get(function(){
+            $scope.polls = $scope.pollData['objects']
         });
         // $scope.objects = $scope.testData['objects'][1]['id'];
         // $scope.testData = Testing.all();

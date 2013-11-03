@@ -28,21 +28,9 @@ services.factory('Choices', ['$resource',
         return $resource('static/data-json/array.json');
 }]);
 
-services.factory('Polls', ['$resource', 
-    //change this out to pull from django DB
-    function ($resource) {
-        return $resource('static/data-json/real.json');    
-    }]);
-
-// services.factory('Testing', ['$resource',
-//     function ($resource) {
-//         return $resource('http://0.0.0.0:8001/api/v1/poll/1/?format=json');
-//     }]);
-
-
-services.factory('Testing', ['$resource', '$http',
+services.factory('Polls', ['$resource', '$http',
     function ($resource, $http) {
-        return $resource('http://0.0.0.0:8001/api/v1/poll/?format=json',
+        return $resource('http://0.0.0.0:8003/api/v1/poll/?format=json',
             {}, {
                 all: {
                     method: 'GET',
@@ -51,15 +39,3 @@ services.factory('Testing', ['$resource', '$http',
                 }
             });
     }]);
-
-// services.factory('Task', ['$resource', '$log', '$http', 'taskURI',
-//     function ($resource, $log, $http, taskURI) {
-//         return $resource(taskURI+'/api/dev/task/:taskID?format=json',
-//             {taskID:'@id'}, {
-//                 all: {
-//                     method: 'GET',
-//                     isArray: true,
-//                     transformResponse: tastypieDataTransformer($http)
-//                 }
-//             });
-//     }]);

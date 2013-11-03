@@ -1,5 +1,5 @@
+from polls.api import PollResource, OptionResource, UserResource
 from django.conf.urls import patterns, include, url
-from polls.api import PollResource, OptionResource
 from django.contrib import admin
 from tastypie.api import Api
 admin.autodiscover()
@@ -7,6 +7,7 @@ admin.autodiscover()
 v1_api = Api(api_name='v1')
 v1_api.register(PollResource())
 v1_api.register(OptionResource())
+v1_api.register(UserResource())
 
 urlpatterns = patterns('',
     # Examples:

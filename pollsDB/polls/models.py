@@ -21,3 +21,7 @@ class Option(models.Model):
 	votes = models.IntegerField(default=0)
 	def __unicode__(self):
 		return self.option_text
+
+
+
+# add in class methods that save votes (and maybe validate creds too?)
