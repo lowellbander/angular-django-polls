@@ -9,17 +9,6 @@ controllers.controller('VoteCtrl', ['$scope', '$http', '$routeParams', 'Options'
         $scope.optionData = Options.get(function(){
             $scope.options = $scope.optionData['objects']
         });
-        // $scope.majors = Polls.query(function () {
-        //     $scope.majorNum = Number($routeParams.pollid);
-        //     $scope.thisMajor = $scope.majors[$scope.majorNum]["name"];
-        //     $scope.courseList = $scope.majors[$scope.majorNum]["courses"];
-        // }); // replace with get for a single major
-        // $scope.vote = function (index) {
-        //     $scope.majors[$scope.majorNum]["courses"][index]["votes"] = $scope.majors[$scope.majorNum]["courses"][index]["votes"] + 1
-            // verbose because I'm ignorant as to how POST/PUT works,
-            // so I figure I should start with something that references the original collection
-            // instead of creating a new object
-        // };
     }]);
 
 controllers.controller('PollCtrl', ['$scope', '$http', 'Polls',

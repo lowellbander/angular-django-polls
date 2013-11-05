@@ -30,7 +30,7 @@ services.factory('Choices', ['$resource',
 
 services.factory('Polls', ['$resource', '$http', 'pollsURI',
     function ($resource, $http, pollsURI) {
-        return $resource(pollsURI + '/api/v1/poll/?format=json',
+        return $resource(pollsURI + '/api/v1/poll/',
             {}, {
                 all: {
                     method: 'GET',
@@ -42,7 +42,7 @@ services.factory('Polls', ['$resource', '$http', 'pollsURI',
 
 services.factory('Options', ['$resource', '$http', 'pollsURI',
     function ($resource, $http, pollsURI) {
-        return $resource(pollsURI + '/api/v1/option/?format=json',
+        return $resource(pollsURI + '/api/v1/option/?id=2',
             {}, {
                 all: {
                     method: 'GET',
