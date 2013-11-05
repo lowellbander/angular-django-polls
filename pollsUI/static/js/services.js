@@ -28,9 +28,9 @@ services.factory('Choices', ['$resource',
         return $resource('static/data-json/array.json');
 }]);
 
-services.factory('Polls', ['$resource', '$http',
-    function ($resource, $http) {
-        return $resource('http://0.0.0.0:8003/api/v1/poll/?format=json',
+services.factory('Polls', ['$resource', '$http', 'pollsURI',
+    function ($resource, $http, pollsURI) {
+        return $resource(pollsURI + '/api/v1/poll/?format=json',
             {}, {
                 all: {
                     method: 'GET',
@@ -39,3 +39,39 @@ services.factory('Polls', ['$resource', '$http',
                 }
             });
     }]);
+
+services.factory('Options', ['$resource', '$http', 'pollsURI',
+    function ($resource, $http, pollsURI) {
+        return $resource(pollsURI + '/api/v1/option/?format=json',
+            {}, {
+                all: {
+                    method: 'GET',
+                    isArray: false,
+                    transformResponse: tastypieDataTransformer($http)
+                }
+            });
+    }]);
+
+// services.factory('Options1', ['$resource', '$http', 'pollsURI',
+//     function ($resource, $http, pollsURI) {
+//         return $resource(pollsURI + '/api/v1/option/set/1;3/?format=json',
+//             {}, {
+//                 all: {
+//                     method: 'GET',
+//                     isArray: false,
+//                     transformResponse: tastypieDataTransformer($http)
+//                 }
+//             });
+//     }]);
+
+// services.factory('Options1', ['$resource', '$http', 'pollsURI',
+//     function ($resource, $http, pollsURI) {
+//         return $resource(pollsURI + '/api/v1/option/set/4;6/?format=json',
+//             {}, {
+//                 all: {
+//                     method: 'GET',
+//                     isArray: false,
+//                     transformResponse: tastypieDataTransformer($http)
+//                 }
+//             });
+//     }]);

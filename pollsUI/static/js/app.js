@@ -13,6 +13,7 @@ var app = angular.module('app', [
 ]);
 
 app.value('ldapURI', '//jvillbrandt-ubuntu:8008');
+app.value('pollsURI', 'http://0.0.0.0:8001');
 //app.value('taskURI', '//jvillbrandt-ubuntu:8007');
 
 app.config(['$routeProvider', function($routeProvider) {
